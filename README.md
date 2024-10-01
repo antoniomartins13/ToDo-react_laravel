@@ -1,7 +1,3 @@
-Aqui está um exemplo de um arquivo `README.md` para o seu projeto de ToDo:
-
----
-
 # ToDo React Laravel
 
 Este é um projeto completo de uma aplicação **ToDo** (lista de tarefas) desenvolvido com **React** no front-end e **Laravel** no back-end. A aplicação permite que usuários criem, visualizem, atualizem e excluam suas tarefas de maneira eficiente, além de possuir autenticação de usuários via **Laravel Sanctum**.
