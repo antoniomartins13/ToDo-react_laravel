@@ -56,7 +56,8 @@
     overflow-y: auto;
 
     height: 50vh;
-    width: calc(100% - 40px);
-    padding: 20px 0;
+    width: 100%;
+    padding: 20px 0px;
+    box-sizing: border-box;
 
 }

@@ -2,12 +2,12 @@ import React, { useState, useEffect} from "react";
 import "./style.css";
 import axios from "axios";
 
-export default function FormTarefa({tarefa, setFormVisivel, tituloForm }){
+export default function FormTarefa({tarefa, setFormVisivel, tituloForm, editar, tarefaAdicionada}){
 
-    const [tituloTarefa, setTituloTarefa] = useState(tarefa.titulo || "");
-    const [descricaoTarefa, setDescricaoTarefa] = useState(tarefa.descricao || "");
-    const [tarefaCompleta, setTarefaCompleta] = useState(tarefa.completo || "");
-    const [dataConclusao, setDataConclusao] = useState(tarefa.dataConclusao || "");
+    const [tituloTarefa, setTituloTarefa] = useState(tarefa.title || "");
+    const [descricaoTarefa, setDescricaoTarefa] = useState(tarefa.description || "");
+    const [tarefaCompleta, setTarefaCompleta] = useState(tarefa.completed || "");
+    const [dataConclusao, setDataConclusao] = useState(tarefa.completed_at || "");
     const [erro, setErro] = useState("");
 
     const auxiliaInput = (setFuncao) => (evento) =>{
@@ -16,26 +16,41 @@ export default function FormTarefa({tarefa, setFormVisivel, tituloForm }){
 
     const auxSubmit = async (evento) => {
         evento.preventDefault();
+        const userId = localStorage.getItem("id_user")
+        const tarefaData = {
+            title: tituloTarefa,
+            description: descricaoTarefa,
+            completed: tarefaCompleta?true:false,
+            completed_at: tarefaCompleta ? dataConclusao : null,
+            user_id: userId,
+        };
 
-        try {
-            const tarefaData = {
-                title: tituloTarefa,
-                description: descricaoTarefa,
-                completed: tarefaCompleta?true:false,
-                completed_at: tarefaCompleta ? dataConclusao : null,
-            };
+        if(editar){
+            try {
+                await axios.patch(`http://localhost:8989/users/${userId}/tasks/${tarefa.id}`, tarefaData);
+                
+                tarefaAdicionada();
+                
+                setFormVisivel(false);
 
-            console.log(tarefaData);
-            const userId = localStorage.getItem("id_user")
-
-            const response = await axios.post(`http://localhost:8989/users/${userId}/tasks`, tarefaData);
-
-            if (response.status === 201) {
-                setFormVisivel(false); 
+            } catch  (error){
+                setErro("Erro ao adicionar a tarefa. Tente novamente.");
+                console.error(error);
             }
-        } catch (error) {
-            setErro("Erro ao adicionar a tarefa. Tente novamente.");
-            console.error(error);
+        }else{
+            try {
+
+                const response = await axios.post(`http://localhost:8989/users/${userId}/tasks`, tarefaData);
+
+                if (response.status === 201) {
+                    tarefaAdicionada();
+                    setFormVisivel(false);
+                }
+
+            } catch (error) {
+                setErro("Erro ao adicionar a tarefa. Tente novamente.");
+                console.error(error);
+            }
         }
     };
 
@@ -71,7 +86,7 @@ export default function FormTarefa({tarefa, setFormVisivel, tituloForm }){
                         <label htmlFor="data">Data de conclusao</label>
                         <input type="date" id="data" name="data" value={dataConclusao} onChange={auxiliaInput(setDataConclusao)} required={tarefaCompleta} />
                     </div>}
-
+                    {erro && <p>{erro}</p>}
                     <div className="card-form-tarefa-btns">
                         <button onClick={()=>{setFormVisivel(false)}} className="btn-cinza" >Cancelar</button>
                         <button type="submit" className="btn-azul">Confirmar</button>
