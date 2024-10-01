@@ -1,0 +1,112 @@
+.card-login{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    height: calc((3/4)*100vh);
+    width: calc((2/4)*100vw);
+    max-width: 400px;
+    min-height: 400px;
+    max-height: 500px;
+
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 3px 3px 2px 2px #88888825;
+
+    padding: 20px;
+    margin: 50px;
+}
+
+.card-login-titulo{
+    height: calc((1/4)*100%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.card-login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    
+    height: calc((2/4)*100%);
+    width: 100%;
+}
+
+.card-login-form-campo{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    
+    width: 80%;
+}
+
+.card-login-form-campo input{
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    font-size: 14px;
+
+    border-radius: 5px;
+    border: solid 1px #000;
+}
+
+.card-login-form-campo label{
+    font-size: 18px;
+}
+
+.card-login-form-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.btn-azul, .btn-cinza{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+    height: 45px;
+    width: 120px;
+
+    border: none;
+    border-radius: 23px;
+
+    cursor: pointer;
+    transition: all .5s ease;
+    font-size: 18px;
+}
+
+.btn-azul:hover, .btn-cinza:hover{
+    box-shadow: 3px 3px 2px 2px #88888825;
+    filter: brightness(0.99);
+}
+
+.btn-azul{
+    background-color: #0B57D0;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.btn-cinza{
+    background-color: #fcfcfc;
+    text-decoration: none;
+    color: #0B57D0;
+}
+
+.card-login-frgt{
+    height: calc((1/4)*100%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

@@ -1,0 +1,80 @@
+.card-tarefa{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    width: calc(100% - 20px);
+    min-height: 100px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 3px 3px 2px 2px #88888825;
+    padding: 20px 0px;
+    transition: all .5s ease;
+    box-sizing: content-box;
+}
+
+.card-tarefa:hover{
+    transform: scale(1.002);
+    background-color: #f6f6f6;
+}
+
+.card-tarefa:hover .checkbox button{
+    background-color: #fff;
+}
+
+.checkbox{
+    min-width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox button{
+    height: 50px;
+    width: 50px;
+    border: none;
+    font-size: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #000;
+    transition: all .3s ease;
+}
+
+.checkbox button:hover{
+    border: 1px solid #0B57D0;
+}
+
+.card-tarefa-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-tarefa-botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.card-tarefa-editar, .card-tarefa-excluir{
+    height: 35px;
+    font-size: 16px;
+}
+
+.card-tarefa-editar:hover{
+    color: #fff;
+    background-color: #F4B400;
+    filter: brightness(1.0);
+}
+
+.card-tarefa-excluir{
+    background-color: #FF0000;
+}

@@ -1,0 +1,10 @@
+.pagina-erro{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pagina-erro p{
+    font-size: 48px;
+}
