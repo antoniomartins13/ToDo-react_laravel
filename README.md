@@ -36,7 +36,7 @@ Este é um projeto completo de uma aplicação **ToDo** (lista de tarefas) desen
 ### Clonando o Repositório
 
   ```
-    git clone https://github.com/seuusuario/ToDo-react-laravel.git
+    git clone https://github.com/antoniomartins13/ToDo-react-laravel.git
     cd ToDo-react-laravel
   ```
 
